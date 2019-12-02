@@ -8,7 +8,26 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 <h1> Liste des thèses tendances </h1>
-<div class="example-wrapper">
+
+<ul>
+  {% for theses in these %}
+
+    <div class="example-wrapper">
+    <h2><li>{{theses.title|capitalize}}</li></h2>
+   
+    <h3>{{theses.phrase|capitalize}}</h3>
+    
+    <h4>{{theses.contact|capitalize}}</h4>
+    </div>
+  {% endfor %}
+  </ul>
+
+ {% endblock %}       
+
+
+
+
+{# <div class="example-wrapper">
     <h2> Titre : titre de la thèse 1 </h2>
     <h3> "phrase d'accroche" </h3>
     <p> contact@mail.fr </p>
@@ -24,14 +43,14 @@
     <h2> Titre : titre de la thèse 3 </h2>
     <h3> "phrase d'accroche" </h3>
     <p> contact2@mail.fr </p>
-</div>
+</div> #}
 
 
 
 
 
 
-<div class="example-wrapper">
+{# div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     This friendly message is coming from:
@@ -39,5 +58,5 @@
         <li>Your controller at <code><a href="{{ '/Users/sdjitao/projets/responsiveskeleton-master 2/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/Users/sdjitao/projets/responsiveskeleton-master 2/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
     </ul>
-</div>
-{% endblock %}
+</div> #}
+
