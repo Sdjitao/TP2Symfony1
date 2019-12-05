@@ -31,6 +31,12 @@ class Theses
      */
     private $contact;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ecoles", inversedBy="theses")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ecoles;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +74,18 @@ class Theses
     public function setContact(string $contact): self
     {
         $this->contact = $contact;
+
+        return $this;
+    }
+
+    public function getEcoles(): ?Ecoles
+    {
+        return $this->ecoles;
+    }
+
+    public function setEcoles(?Ecoles $ecoles): self
+    {
+        $this->ecoles = $ecoles;
 
         return $this;
     }
