@@ -31,11 +31,11 @@ class Ecoles
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Theses", mappedBy="ecoles")
      */
-    private $theses;
+    private $Theses;
 
     public function __construct()
     {
-        $this->theses = new ArrayCollection();
+        $this->Theses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -72,13 +72,13 @@ class Ecoles
      */
     public function getTheses(): Collection
     {
-        return $this->theses;
+        return $this->Theses;
     }
 
     public function addThesis(Theses $thesis): self
     {
-        if (!$this->theses->contains($thesis)) {
-            $this->theses[] = $thesis;
+        if (!$this->Theses->contains($thesis)) {
+            $this->Theses[] = $thesis;
             $thesis->setEcoles($this);
         }
 
@@ -87,8 +87,8 @@ class Ecoles
 
     public function removeThesis(Theses $thesis): self
     {
-        if ($this->theses->contains($thesis)) {
-            $this->theses->removeElement($thesis);
+        if ($this->Theses->contains($thesis)) {
+            $this->Theses->removeElement($thesis);
             // set the owning side to null (unless already changed)
             if ($thesis->getEcoles() === $this) {
                 $thesis->setEcoles(null);

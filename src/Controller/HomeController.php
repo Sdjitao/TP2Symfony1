@@ -57,12 +57,6 @@ class HomeController extends AbstractController
             $these2 ->setEcoles($ecole0);
             $entityManager ->persist($these2);
 
-            $these3 = new Theses();
-            $these3 ->setTitle('rotage mobile');
-            $these3 ->setPhrase('Méthodes approximative au problème de routage de véhicule pour une gestion de flotte de drones');
-            $these3 ->setContact('univ1@gmail.com');
-            $these3 ->setEcoles($ecole1);
-            $entityManager ->persist($these3);
 
             $these4 = new Theses();
             $these4 ->setTitle('rotage mobile');

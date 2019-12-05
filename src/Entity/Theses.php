@@ -32,8 +32,7 @@ class Theses
     private $contact;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ecoles", inversedBy="theses")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ecoles", inversedBy="Theses")
      */
     private $ecoles;
 
