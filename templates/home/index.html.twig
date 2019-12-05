@@ -13,14 +13,10 @@
     
     {% for ecoles in ecole %}
     <div class="example-wrapper">
-    <h4>{{ ecoles.nom|capitalize }}
-    <br>
-    <a href="{{ ecoles.lien|capitalize }}">lien de l'ecole</a>
-    </h4>
+   
+     <h4><a href="{{ ecoles.lien|capitalize }}">{{ ecoles.nom|capitalize }}</a></h4>
     
-    
-
-    
+     
         {% for theses in ecoles.theses %}
 
         <div class="example-wrapper">
