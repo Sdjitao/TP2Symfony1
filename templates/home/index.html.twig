@@ -7,65 +7,39 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+
+<h5>
+<li><a href="{{ path('home1')}}">Accueil</a></li>
+<li><a href="{{ path('home2')}}">Le nombre des thèses par ecole doctorale</a></li>
+</h5>
+
 <h1> Liste des thèses tendances </h1>
-
-
-    
     {% for ecoles in ecole %}
     <div class="example-wrapper">
    
      <h4><a href="{{ ecoles.lien|capitalize }}">{{ ecoles.nom|capitalize }}</a></h4>
     
-     
+     <div class="example-wrapper">
         {% for theses in ecoles.theses %}
 
-        <div class="example-wrapper">
+        
         <h2><li>{{theses.title|capitalize}}</li></h2>
     
         <h3>{{theses.phrase|capitalize}}</h3>
         
         <h4>{{theses.contact|capitalize}}</h4>
-        </div>
+
+        {% else %}
+           <p>  Aucune proposition de thèse pour l'instant n'hesitez pas à consulter
+                notre site régulièrement  <p>
+       
+        
         {% endfor %}
+        </div>
     </div>
     {% endfor %}
   
 
  {% endblock %}       
 
-
-
-
-{# <div class="example-wrapper">
-    <h2> Titre : titre de la thèse 1 </h2>
-    <h3> "phrase d'accroche" </h3>
-    <p> contact@mail.fr </p>
-</div>
-
-<div class="example-wrapper">
-    <h2> Titre : titre de la thèse 2 </h2>
-    <h3> "phrase d'accroche" </h3>
-    <p> contact1@mail.fr </p>
-</div>
-
-<div class="example-wrapper">
-    <h2> Titre : titre de la thèse 3 </h2>
-    <h3> "phrase d'accroche" </h3>
-    <p> contact2@mail.fr </p>
-</div> #}
-
-
-
-
-
-
-{# div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sdjitao/projets/responsiveskeleton-master 2/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sdjitao/projets/responsiveskeleton-master 2/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div> #}
 

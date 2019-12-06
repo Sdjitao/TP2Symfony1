@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Home2Controller!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h5>
+<li><a href="{{ path('home1')}}">Accueil</a></li>
+<li><a href="{{ path('home')}}">Liste des thèses par école doctorale</a></li>
+</h5>
+
+    {% for ecoles in ecole %}
+    <div class="example-wrapper">
+   
+     <h4>
+     {{ ecoles.nom|capitalize }}
+     <br>
+     <a href="{{ ecoles.lien|capitalize }}">lien de l'école doctorale</a>
+     </h4>
+    <div class="example-wrapper"> 
+    {% for theses in ecoles.theses %}
+        <br> Nombre de thèse est de {{ ecoles.theses | length }}
+            {% else %}
+            <p>Nombre de thèse est de 0 veuillez consulter notre site ultérieurement<p>
+        {% endfor %}
+         </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
