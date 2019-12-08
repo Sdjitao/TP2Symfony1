@@ -3,23 +3,19 @@
 // les règles dans ce fichier (desktop/global.scss) surcharge celles définit dans tablet/global.scss
 
 body{
-  border: 10px solid black;
+   border: 10px solid rgb(18, 201, 125);
   // affiche le bandeau du profiler de symfony en vert sombre
   // je surcharge la règle '.sf-toolbarreset' définit dans 'tablet/global.scss'
   .sf-toolbarreset{
     background-color: #3c613c;
   }
 
-  div{
-    background-color: rgb(11, 232, 240);
-
-  }
   h1{
     text-align: center;
   }
   h2{
     text-align: center;
-     width: 80%;
+     width: 30%;
      margin: auto;
      font-size: xx-large;
    }
@@ -28,17 +24,14 @@ body{
     border-radius: 1px;
 
    }
-/*    h4{
-     background-color: rgb(0, 225, 255);
-    border-radius: 10px;
-
-   } */
+    
    li{
     text-align: center;
-     width: 80%;
+     width: 30%;
      margin: auto;
      font-size: xx-large;
    }
+   
 
 
 }

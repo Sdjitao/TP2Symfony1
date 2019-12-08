@@ -1,45 +1,48 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Projets{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
+    <h1> Liste des projets </h1>
 
-<h5>
-<li><a href="{{ path('home1')}}">Accueil</a></li>
-<li><a href="{{ path('home2')}}">Le nombre des thèses par ecole doctorale</a></li>
-</h5>
-
-<h1> Liste des thèses tendances </h1>
-    {% for ecoles in ecole %}
-    <div class="example-wrapper">
-   
-     <h4><a href="{{ ecoles.lien|capitalize }}">{{ ecoles.nom|capitalize }}</a></h4>
-    
-     <div class="example-wrapper">
-        {% for theses in ecoles.theses %}
+    {# la première boucle for pour selections les université dans la table de l'universite #}
+        {% for universites in universite %}
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <div class="example-wrapper">
+                        <div class="nav-item "> 
+                            {# la selection du nom parmis les attribus de la classe Universite #}
+                            <h4> {{ universites.nom|capitalize }}
+                                <br>
+                                {# la selection du lien parmis les attribus de la classe Universite #}
+                                <a href="{{ universites.lien|capitalize }}">lien de l'université</a>
+                            </h4>
+                        </div>
+                        {# la jointure des deux entity Université et Projets et la selection les attributs de l'entity projets
+                         en fonction de projets realisé selons l'université avec la non condition else qui devrait affiché un message de 
+                         pas de projet fait si jamais pendant le cursus dans l'université y a eu de projet realisé  #}
+                        {% for projets in universites.projet %}
+                            <div class="nav-item ">
+                                <li>{{projets.titre|capitalize}}</li>                       
+                                <h3>{{projets.descrip|capitalize}}</h3>
+                                <h4> <a href="{{projets.lien|capitalize}}"> Lien Github </a> </h4>
+                                {% else %}
+                                <h3> <p>  pas de projet fait <p></h3>
+                            </div>
+                        {% endfor %}         
+                    </div>            
+                </div>            
+            </nav>              
+        {% endfor %}    
+ {% endblock %}           
+            
+        
+        
 
         
-        <h2><li>{{theses.title|capitalize}}</li></h2>
-    
-        <h3>{{theses.phrase|capitalize}}</h3>
-        
-        <h4>{{theses.contact|capitalize}}</h4>
-
-        {% else %}
-           <p>  Aucune proposition de thèse pour l'instant n'hesitez pas à consulter
-                notre site régulièrement  <p>
-       
-        
-        {% endfor %}
-        </div>
-    </div>
-    {% endfor %}
-  
-
- {% endblock %}       
 
 

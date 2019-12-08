@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Infopersonel;
 
 class Home1Controller extends AbstractController
 {
@@ -12,8 +13,12 @@ class Home1Controller extends AbstractController
      */
     public function index()
     {
+        $entityManager = $this ->getDoctrine() ->getManager();
+        $InfopersonelRepository = $entityManager ->getRepository(Infopersonel :: class);
+        $info = $InfopersonelRepository ->findAll();
+        
         return $this->render('home1/index.html.twig', [
-            'controller_name' => 'Home1Controller',
+            'infopersonel' => $InfopersonelRepository->findAll(),
         ]);
     }
 }

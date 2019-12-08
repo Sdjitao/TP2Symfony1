@@ -4,11 +4,48 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {{ encore_entry_link_tags('globalStyle') }}
+        <link rel="stylesheet"
+        href="https://bootswatch.com/4/pulse/bootstrap.min.css"> 
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {{ encore_entry_script_tags('globalJS') }}
+    
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+           <h4> <a class="navbar-brand" href="home1">Accueil</a></h4>
+            <button class="navbar-toggler active" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <h4 class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="home">Projets<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home2">Formation<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="home1">Infos Personnel<span class="sr-only">(current)</span></a>                        
+                    </li>
+                </ul>
+            </h4>
+        </nav>
+    
+        <div class="container">
+            {% block body %}{% endblock %}
+        
         {% block javascripts %}{% endblock %}
+        {{ encore_entry_script_tags('globalJS') }}
+        </div>
+        <h1>
+            <div class="colorlib-footer">
+                <div>
+					<a href="https://www.facebook.com/search/top/?q=Mohamed%20SDjitao&epa=SEARCH_BOX">FACEBOOK<span class="sr-only">(current)</span></a>
+					<a href="https://www.linkedin.com/in/salifou-djitao-mohamed-9a4455158/">LINKEDIN<span class="sr-only">(current)</span></a>
+					<a href="https://www.instagram.com/mhd_sdjitao/">INSTAGRAM<span class="sr-only">(current)</span></a>
+					<a href="https://twitter.com/sdjitao">TWITTER<span class="sr-only">(current)</span></a>
+				</div>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved réalisé par Mohamed</span></small></p>
+			</div>
+        </h1>       
     </body>
 </html>

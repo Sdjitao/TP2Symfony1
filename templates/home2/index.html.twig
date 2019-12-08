@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Home2Controller!{% endblock %}
+{% block title %}Formations{% endblock %}
 
 {% block body %}
 <style>
@@ -8,27 +8,30 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<h5>
-<li><a href="{{ path('home1')}}">Accueil</a></li>
-<li><a href="{{ path('home')}}">Liste des thèses par école doctorale</a></li>
-</h5>
-
-    {% for ecoles in ecole %}
-    <div class="example-wrapper">
-   
-     <h4>
-     {{ ecoles.nom|capitalize }}
-     <br>
-     <a href="{{ ecoles.lien|capitalize }}">lien de l'école doctorale</a>
-     </h4>
-    <div class="example-wrapper"> 
-    {% for theses in ecoles.theses %}
-        <br> Nombre de thèse est de {{ ecoles.theses | length }}
-            {% else %}
-            <p>Nombre de thèse est de 0 veuillez consulter notre site ultérieurement<p>
-        {% endfor %}
-         </div>
-    </div>
+<h1> Liste de mes formation suivie </h1>
+{# la première boucle for pour selections les université dans la table de l'universite #}
+    {% for universites in universite %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <div class="example-wrapper">
+                    <div class="nav-item "> 
+                    {# la selection des attributts nom et lien de l'université qui vont s'affiché pour la jointure #}                   
+                        <h4> {{ universites.nom|capitalize }}
+                            <br>
+                            <a href="{{ universites.lien|capitalize }}">lien de l'université</a>
+                        </h4>
+                    </div> 
+                    {# la realtion entre l'entity formation et l'université et de types de 0 à N
+                    donc j'ai fait une jointure des deux entity  #}              
+                    {% for formations in universites.formation %}
+                    <div class="nav-item ">                    
+                        <li>{{formations.nom|capitalize}}</li>    
+                        <h3>{{formations.niveau|capitalize}}</h3>        
+                        <h4>{{formations.annee}}</h4>
+                    </div>
+                    {% endfor %}
+                </div>           
+            </div> 
+        </nav>
     {% endfor %}
-
 {% endblock %}

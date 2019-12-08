@@ -1,23 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello Home1Controller!{% endblock %}
+{% block title %}Infos Personnel{% endblock %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-<div>
-    <p>
-     vous pouvez consulter la liste des thèses tendances des universités selectionnés en clique sur la liste des thèses ci-dessous 
-    <p>
-    <h2>
-    <li><a href="{{ path('home1')}}">Actualiser</a></li>
-    <li><a href="{{ path('home')}}">Liste des thèses par ecole doctorale</a></li>
-    <li><a href="{{ path('home2')}}">Le nombre de theses par ecole doctorale</a></li>
-    </h2>
-</div>
-
-
-
+<h1> Infos Personnel </h1>
+    <h3><p>Bonjour et bienvenue dans mon blog je vais juste me presenté un tout petit peut, je suis... à vrai dire je sais pas par quoi commencé, je disais... bref desolé de n'est pas savoir trop quoi dire sur moi en realité. Tout ce que je sais c'est que je ne sais rien dit Socrate je voulais dire par cette citation c'est que je suis étudiant et qui dit étudiant dit également la recherche du savoir. Merci pour votre visite dans mon blog je voudrais aussi par ailleurs vous remercié d'avoir partagé votre savoir avec nous!<p></h3> 
+    {# la boucle for pour la selections des entity figurant dans la table Infos Personnels #}
+    {% for infopersonels in infopersonel %}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <div class="example-wrapper">        
+                    <div class="nav-item "> 
+                        {# la selection des attributs figurant dans la table infos personnels pour les affiché on es biensur dans le template #}           
+                        <h3> Nom : {{infopersonels.nom|capitalize}}</h3> 
+                        <br>
+                        <h3> Prenom : {{infopersonels.prenom|capitalize}}</h3>
+                        <br>
+                        <h3> Age : {{infopersonels.age}} ans </h3>
+                        <br>
+                        <h3> Adress : {{infopersonels.adress|capitalize}} </h3>
+                        <br>
+                        <h3> Email : {{infopersonels.email|capitalize}} </h3>
+                        <br>
+                        <h3> Tel : {{infopersonels.tel}} </h3>
+                        <br>
+                        <h3> Permis de conduire : {{infopersonels.permis|capitalize}} </h3>               
+                    </div>
+                </div>   
+            </div> 
+        </nav>
+    {% endfor %}
 {% endblock %}
